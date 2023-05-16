@@ -26,7 +26,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
-  key_name = "Terraform-USAC-V2"//You have to change here with your key name
+  key_name = "testing-tf-before-class"//You have to change here with your key name
   vpc_security_group_ids = [ "sg-0a4c05dd2a334aae1" ]//You have to change here with the id of your security group
   subnet_id = "subnet-074e83838c02bc215"//You have to replace here with your public subnet
   associate_public_ip_address = true
