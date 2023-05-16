@@ -24,7 +24,7 @@ data "aws_ami" "ubuntu" {
 
 #Creación del recurso
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
   key_name = "Terraform-USAC-V2"//You have to change here with your key name
   vpc_security_group_ids = [ "sg-0c79f2e1d160c8c2f" ]//You have to change here with the id of your security group
