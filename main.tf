@@ -25,11 +25,10 @@ data "aws_ami" "ubuntu" {
 #Creación del recurso
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
-  //ami = "" // NO ES ELEGANTE!
   instance_type = "t2.micro"
-  key_name = "Aquí va el nombre de tu llave SSH"
-  vpc_security_group_ids = [ "Aquí va el ID de tu Security Group" ]
-  subnet_id = "Aquí va el ID de tu subred pública"
+  key_name = "Terraform-USAC-V2"//You have to change here with your key name
+  vpc_security_group_ids = [ "sg-0c79f2e1d160c8c2f" ]//You have to change here with the id of your security group
+  subnet_id = "subnet-0faaeabc37d094caa"//You have to replace here with your public subnet
   associate_public_ip_address = true
 
   tags = {
